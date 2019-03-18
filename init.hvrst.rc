@@ -1,0 +1,5 @@
+service hvdiag /vendor/bin/hvrst
+    class core
+    user root
+    group root
+    oneshot

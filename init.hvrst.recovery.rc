@@ -1,0 +1,6 @@
+service hvrst /vendor/bin/hvrst
+    class core
+    seclabel u:r:vendor_init:s0
+    user root
+    group root
+    oneshot
