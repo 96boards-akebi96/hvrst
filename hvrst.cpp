@@ -3,17 +3,17 @@
 #define LOG_TAG "hvrst"
 #include <log/log.h>
 
-#define PORT_ID "444" // P84
+#define PORT_ID "375" // P84 = 307 + 8*8 + 4 = 375
 #define SYSFS_EXPORT  "/sys/class/gpio/export"
-#define SYSFS_GPIO444_DIR "/sys/class/gpio/gpio444/direction"
-#define SYSFS_GPIO444_VAL "/sys/class/gpio/gpio444/value"
+#define SYSFS_GPIO375_DIR "/sys/class/gpio/gpio375/direction"
+#define SYSFS_GPIO375_VAL "/sys/class/gpio/gpio375/value"
 
 int main(int , char **)
 {
     int ret = 0;
     int fd = -1;
 
-    // create gpio444
+    // create gpio375
     fd = open(SYSFS_EXPORT, O_WRONLY);
     if (fd < 0) {
         ALOGE("%s:%d Can't open %s", __func__, __LINE__, SYSFS_EXPORT);
@@ -28,9 +28,9 @@ int main(int , char **)
     close(fd);
 
     // P84 direction : outout
-    fd = open(SYSFS_GPIO444_DIR, O_WRONLY);
+    fd = open(SYSFS_GPIO375_DIR, O_WRONLY);
     if (fd < 0) {
-        ALOGE("%s:%d Can't open %s", __func__, __LINE__, SYSFS_GPIO444_DIR);
+        ALOGE("%s:%d Can't open %s", __func__, __LINE__, SYSFS_GPIO375_DIR);
         return -1;
     }
     ret = write(fd, "out", sizeof("out"));
@@ -42,9 +42,9 @@ int main(int , char **)
     close(fd);
 
     // P84 value open
-    fd = open(SYSFS_GPIO444_VAL, O_WRONLY);
+    fd = open(SYSFS_GPIO375_VAL, O_WRONLY);
     if (fd < 0) {
-        ALOGE("%s:%d Can't open %s", __func__, __LINE__, SYSFS_GPIO444_VAL);
+        ALOGE("%s:%d Can't open %s", __func__, __LINE__, SYSFS_GPIO375_VAL);
         return -1;
     }
 
