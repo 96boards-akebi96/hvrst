@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright (C) 2018 Socionext Inc.
+
 #include <unistd.h>
 
 #define LOG_TAG "hvrst"
